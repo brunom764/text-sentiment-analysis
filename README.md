@@ -70,15 +70,20 @@ Interface: http://localhost:8501
 ```
  
 ## 📂 Estrutura do Projeto
-text
-.
+
+
 ├── web/                  # Código do frontend
+
 │   ├── app_streamlit.py  # Interface Streamlit
+
 ├── main.py               # Endpoints e configuração
+
 ├── analise-de-sentimentos.ipynb # Jupyter notebook de treino
+
 ├── requirements.txt      # Dependências
+
 └── README.md
 
 
-📄 Licença
+## 📄 Licença
 MIT License - veja LICENSE para detalhes.
