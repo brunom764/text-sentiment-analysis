@@ -35,14 +35,17 @@ Sistema completo para classificação de sentimentos em textos, utilizando BERT 
    git clone https://github.com/seu-usuario/analise-sentimentos.git
    cd analise-sentimentos ```
 
-2. Crie o ambiente virtual
+2. Faça o download do dataset
+   https://drive.google.com/drive/folders/1010kVsD8jTAt4TU-guowMT4gJlrlf7TO?usp=sharing
+   
+3. Crie o ambiente virtual
  ```bash
     python -m venv venv
     source venv/bin/activate  # Linux/Mac
     venv\Scripts\activate    # Windows
  ```
 
-3. Instale as dependências
+4. Instale as dependências
  ```bash
     pip install -r requirements.txt
  ```
