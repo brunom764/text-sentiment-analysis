@@ -37,15 +37,18 @@ Sistema completo para classificação de sentimentos em textos, utilizando BERT 
 
 2. Faça o download do dataset em csv
    https://www.kaggle.com/datasets/kazanova/sentiment140
+
+3. Faça o download do modelo e adicione no projeto
+    https://drive.google.com/drive/folders/1ORG_kFBYfH-5JxEe-l6nF3lfC9HUgcLP?usp=drive_link
    
-3. Crie o ambiente virtual
+4. Crie o ambiente virtual
  ```bash
     python -m venv venv
     source venv/bin/activate  # Linux/Mac
     venv\Scripts\activate    # Windows
  ```
 
-4. Instale as dependências
+5. Instale as dependências
  ```bash
     pip install -r requirements.txt
  ```
@@ -55,7 +58,7 @@ Sistema completo para classificação de sentimentos em textos, utilizando BERT 
 1.Inicie a API (em um terminal):
 
  ```bash
-uvicorn api.main:app --reload
+uvicorn main:app --reload
 ```
 
 2. Inicie a interface (em outro terminal):
