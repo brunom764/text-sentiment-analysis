@@ -3,7 +3,6 @@ import requests
 from datetime import datetime
 import os
 
-# Constantes para evitar duplicação de strings
 METRIC_CARD_OPEN = '<div class="metric-card">'
 DIV_CLOSE = '</div>'
 RESULT_CONTAINER_OPEN = '<div class="result-container">'
