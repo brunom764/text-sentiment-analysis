@@ -32,8 +32,9 @@ Sistema completo para classificação de sentimentos em textos, utilizando BERT 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/analise-sentimentos.git
-   cd analise-sentimentos ```
+   git clone https://github.com/brunom764/text-sentiment-analysis.git
+   cd text-sentiment-analysis
+   ```
 
 2. Faça o download do dataset em csv
    https://www.kaggle.com/datasets/kazanova/sentiment140
