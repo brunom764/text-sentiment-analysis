@@ -65,7 +65,7 @@ uvicorn main:app --reload
 2. Inicie a interface (em outro terminal):
 
  ```bash
-streamlit run app.py
+streamlit run app_streamlit.py
 ```
 
 3. Acesse no navegador:
