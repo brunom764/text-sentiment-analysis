@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+.main-header {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    color: white;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+        
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.main-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.stTextArea textarea {
+    height: 90px !important;
+    border-radius: 10px !important;
+    border: 2px solid #e1e8ed !important;
+    font-size: 14px !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTextArea textarea:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1) !important;
+}
+
+.stButton > button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    padding: 0.6rem 1.5rem !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2) !important;
+    width: 100% !important;
+}
+
+.stButton > button:hover {
+    background: #2563eb !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+    border: none !important;
+}
+
+.stButton > button:focus {
+    background: #2563eb !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+.result-container {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #667eea;
+}
+
+.positive { 
+    color: #10b981; 
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.negative { 
+    color: #ef4444; 
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.neutral { 
+    color: #f59e0b; 
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+
+.sidebar-content {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #64748b;
+    font-size: 0.8rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 2rem;
+}
+
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    max-width: 700px;
+}
+
+.stProgress > div > div > div > div {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 6px;
+}

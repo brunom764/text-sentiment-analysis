@@ -1,38 +1,57 @@
 import streamlit as st
 import requests
 from datetime import datetime
+import os
 
+METRIC_CARD_OPEN = '<div class="metric-card">'
+DIV_CLOSE = '</div>'
+RESULT_CONTAINER_OPEN = '<div class="result-container">'
+
+def load_css(file_name):
+    """Carrega arquivo CSS externo"""
+    css_path = os.path.join(os.path.dirname(__file__), file_name)
+    try:
+        with open(css_path, 'r', encoding='utf-8') as f:
+            css_content = f.read()
+        st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error(f"Arquivo CSS não encontrado: {file_name}")
+    except Exception as e:
+        st.error(f"Erro ao carregar CSS: {str(e)}")
 
 st.set_page_config(
     page_title="Análise de Sentimentos",
-    page_icon="😊",
-    layout="centered"
+    page_icon="https://i.imgur.com/GlOVGYh.png",
+    layout="centered",
+    initial_sidebar_state="collapsed"
 )
 
+load_css('styles.css')
 
 st.markdown("""
-<style>
-    .positive { color: #2ecc71; font-weight: bold; }
-    .negative { color: #e74c3c; font-weight: bold; }
-    .neutral { color: #f39c12; font-weight: bold; }
-    .stTextArea textarea { height: 150px; }
-</style>
+<div class="main-header">
+    <img src="https://i.imgur.com/XRbAYRH.png" alt="Brain Icon"
+         style="width: 90px; height: 90px;">
+    <div class="title-wrapper">
+        <h1 class="main-title">Análise de Sentimentos</h1>
+        <p class="main-subtitle">Inteligência artificial para compreender emoções em textos</p>
+    </div>
+</div>
 """, unsafe_allow_html=True)
 
-
-st.title("📊 Analisador de Sentimentos")
-st.markdown("Insira um texto para classificar seu sentimento como **positivo**, **negativo** ou **neutro**.")
-
+st.markdown("### 📝 Digite seu texto para análise")
+st.markdown("Nosso modelo de IA analisará o sentimento e fornecerá uma classificação detalhada.")
 
 user_input = st.text_area(
-    "Digite seu texto aqui:",
-    placeholder="Ex: Adorei o produto! A entrega foi rápida e o atendimento excelente...",
-    key="text_input"
+    "",
+    placeholder="Ex: Adorei o produto! A entrega foi rápida e o atendimento foi excelente. Recomendo para todos!",
+    key="text_input",
+    label_visibility="collapsed"
 )
 
-if st.button("🔍 Analisar Sentimento", type="primary", use_container_width=True):
+if st.button("🔍 Analisar Sentimento", type="primary", use_container_width=True, key="analyze_btn"):
     if user_input.strip():
-        with st.spinner("Processando..."):
+        with st.spinner("🤖 Processando com IA..."):
             try:
                 response = requests.post(
                     "http://localhost:8000/predict",
@@ -45,47 +64,83 @@ if st.button("🔍 Analisar Sentimento", type="primary", use_container_width=Tru
                     confidence = result['confidence'] * 100
                     sentiment = result['sentiment']
                     
-                    st.markdown("---")
-                    st.subheader("Resultado:")
+                    st.markdown(RESULT_CONTAINER_OPEN, unsafe_allow_html=True)
+                    st.markdown("### 📊 Resultado da Análise")
                     
-                    col1, col2 = st.columns(2)
+                    col1, col2, col3 = st.columns(3)
+                    
                     with col1:
-                        st.metric("Sentimento", sentiment.upper())
-                    with col2:
-                        st.metric("Confiança", f"{confidence:.2f}%")
+                        st.markdown(METRIC_CARD_OPEN, unsafe_allow_html=True)
+                        st.metric("🎯 Sentimento", sentiment.upper())
+                        st.markdown(DIV_CLOSE, unsafe_allow_html=True)
                     
+                    with col2:
+                        st.markdown(METRIC_CARD_OPEN, unsafe_allow_html=True)
+                        st.metric("📈 Confiança", f"{confidence:.1f}%")
+                        st.markdown(DIV_CLOSE, unsafe_allow_html=True)
+                    
+                    with col3:
+                        st.markdown(METRIC_CARD_OPEN, unsafe_allow_html=True)
+                        timestamp = datetime.now().strftime("%H:%M")
+                        st.metric("⏰ Processado", timestamp)
+                        st.markdown(DIV_CLOSE, unsafe_allow_html=True)
+                    
+                    st.markdown("#### Nível de Confiança")
                     progress_bar = st.progress(0)
-                    for percent_complete in range(int(confidence)):
-                        progress_bar.progress(percent_complete + 1)
+                    progress_bar.progress(confidence / 100)
                     
                     if sentiment == "positivo":
-                        st.markdown('<p class="positive">✅ Sentimento positivo detectado!</p>', unsafe_allow_html=True)
+                        st.markdown('<p class="positive">✨ Sentimento positivo detectado! O texto expressa emoções favoráveis.</p>', unsafe_allow_html=True)
                     elif sentiment == "negativo":
-                        st.markdown('<p class="negative">⚠️ Sentimento negativo detectado</p>', unsafe_allow_html=True)
+                        st.markdown('<p class="negative">⚠️ Sentimento negativo detectado. O texto contém emoções desfavoráveis.</p>', unsafe_allow_html=True)
                     else:
-                        st.markdown('<p class="neutral">🤔 Sentimento neutro</p>', unsafe_allow_html=True)
+                        st.markdown('<p class="neutral">🤔 Sentimento neutro. O texto não expressa emoções claramente definidas.</p>', unsafe_allow_html=True)
                     
-                    with st.expander("Detalhes técnicos"):
+                    with st.expander("🔧 Detalhes Técnicos"):
                         st.json(response.json())
+                    
+                    st.markdown(DIV_CLOSE, unsafe_allow_html=True)
                 
                 else:
-                    st.error(f"Erro na API: {response.status_code}")
+                    st.error(f"❌ Erro na API: {response.status_code}")
             except requests.exceptions.RequestException as e:
-                st.error(f"Falha ao conectar com a API: {str(e)}")
+                st.error(f"🔌 Falha ao conectar com a API: {str(e)}")
     else:
-        st.warning("Por favor, insira algum texto para análise.")
+        st.warning("⚠️ Por favor, insira algum texto para análise.")
+
+st.markdown(DIV_CLOSE, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.header("ℹ️ Sobre")
+    st.markdown("### ℹ️ Sobre o Sistema")
     st.markdown("""
-    Esta aplicação utiliza:
-    - Modelo BERT fine-tuned
-    - API FastAPI para inferência
-    - Streamlit para interface
+    **Tecnologias utilizadas:**
+    - 🤖 Modelo BERT fine-tuned
+    - ⚡ API FastAPI para inferência
+    - 🎨 Interface Streamlit moderna
+    - 🔍 Análise em tempo real
     """)
-    st.markdown("---")
+    
+    st.markdown("### 📈 Como funciona")
+    st.markdown("""
+    1. **Digite** seu texto na área principal
+    2. **Clique** em analisar para processar
+    3. **Visualize** o resultado com confiança
+    4. **Explore** os detalhes técnicos
+    """)
+    
+    st.markdown("### 💡 Dicas")
+    st.markdown("""
+    - Textos mais longos geram análises mais precisas
+    - O modelo foi treinado em português
+    - Confiança acima de 80% indica alta precisão
+    """)
 
+st.markdown(DIV_CLOSE, unsafe_allow_html=True)
 
-
-st.markdown("---")
-st.caption("© 2025 Análise de Sentimentos - {ajof-bmma-gaac-glrm}@cin.ufpe.br")
+st.markdown("""
+<div class="footer">
+    <p>🚀 <strong>Análise de Sentimentos com IA</strong></p>
+    <p>Desenvolvido com ❤️ para compreender emoções em textos</p>
+    <p><small>© 2025 - {ajof-bmma-gaac-glrm}@cin.ufpe.br</small></p>
+</div>
+""", unsafe_allow_html=True)
