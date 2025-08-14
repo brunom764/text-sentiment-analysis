@@ -6,16 +6,16 @@ html, body, [class*="css"] {
 
 .main-header {
     text-align: left;
-    padding: 2rem 2.5rem;
+    padding: 1.5rem 2rem;
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    border-radius: 20px;
-    margin-bottom: 2rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
     color: white;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
         
 .title-wrapper {
@@ -25,32 +25,32 @@ html, body, [class*="css"] {
 }
 
 .main-title {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: -1px;
-    margin-bottom: 0.3rem;
+    margin: 0;
 }
 
 .main-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 300;
     opacity: 0.9;
     margin: 0;
 }
 
 .stTextArea textarea {
-    height: 120px !important;
-    border-radius: 12px !important;
+    height: 90px !important;
+    border-radius: 10px !important;
     border: 2px solid #e1e8ed !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-family: 'Inter', sans-serif !important;
-    padding: 16px !important;
+    padding: 12px !important;
     transition: all 0.3s ease !important;
 }
 
 .stTextArea textarea:focus {
     border-color: #667eea !important;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1) !important;
 }
 
 .stButton > button {
@@ -59,10 +59,10 @@ html, body, [class*="css"] {
     border-radius: 8px !important;
     color: white !important;
     font-weight: 500 !important;
-    font-size: 16px !important;
-    padding: 0.75rem 2rem !important;
+    font-size: 14px !important;
+    padding: 0.6rem 1.5rem !important;
     transition: all 0.2s ease !important;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2) !important;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2) !important;
     width: 100% !important;
 }
 
@@ -81,59 +81,52 @@ html, body, [class*="css"] {
 
 .result-container {
     background: #f8fafc;
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    border-left: 4px solid #667eea;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #667eea;
 }
 
 .positive { 
     color: #10b981; 
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .negative { 
     color: #ef4444; 
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .neutral { 
     color: #f59e0b; 
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
-.metric-card {
-    background: white;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f0f2f6;
-}
+
 
 .sidebar-content {
     background: #f8fafc;
-    border-radius: 12px;
-    padding: 1rem;
-    margin: 1rem 0;
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
 }
 
 .footer {
     text-align: center;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     color: #64748b;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-top: 1px solid #e2e8f0;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .main .block-container {
     padding-top: 2rem;
-    padding-bottom: 2rem;
-    max-width: 800px;
+    padding-bottom: 1.5rem;
+    max-width: 700px;
 }
 
 .stProgress > div > div > div > div {

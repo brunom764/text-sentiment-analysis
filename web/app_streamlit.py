@@ -26,13 +26,12 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Carrega o CSS externo
 load_css('styles.css')
 
 st.markdown("""
 <div class="main-header">
     <img src="https://i.imgur.com/XRbAYRH.png" alt="Brain Icon"
-         style="width: 120px; height: 120px;">
+         style="width: 90px; height: 90px;">
     <div class="title-wrapper">
         <h1 class="main-title">Análise de Sentimentos</h1>
         <p class="main-subtitle">Inteligência artificial para compreender emoções em textos</p>
