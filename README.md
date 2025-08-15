@@ -30,6 +30,12 @@ Sistema completo para classificação de sentimentos em textos, utilizando BERT 
 - **Frontend**: Streamlit
 - **Pré-processamento**: Pandas, NLTK
 
+## 🏋️‍♂️ Treinamento
+
+- **Biblioteca Utilizada**: Pytorch
+- **Métricas**: Acurácia e F1-Score
+- **Classificação**: Multiclasse (3 Classes)
+
 ## ⚙️ Instalação
 
 1. Clone o repositório:
