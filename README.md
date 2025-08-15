@@ -7,11 +7,13 @@
 
 Sistema completo para classificação de sentimentos em textos, utilizando BERT fine-tuned, FastAPI e Streamlit.
 
-<img width="1849" height="955" alt="Captura de tela de 2025-08-03 09-25-12" src="https://github.com/user-attachments/assets/3e4a9ce2-9263-4291-9e4f-f6564d1b24de" />
+<img width="1849" height="955" alt="Captura de tela de 2025-08-03 09-25-12" src="https://i.imgur.com/8flyAet.png" />
 
-<img width="1849" height="955" alt="Captura de tela de 2025-08-03 09-26-37" src="https://github.com/user-attachments/assets/3a566002-707b-4e4f-8b1a-39575c1ca4cf" />
+<img width="1849" height="955" alt="Captura de tela de 2025-08-03 09-26-37" src="https://i.imgur.com/uHCA4sJ.png" />
 
+<img width="1849" height="955" alt="Captura de tela de 2025-08-03 09-26-37" src="https://i.imgur.com/ZoA8Abd.png" />
 
+<img width="1849" height="955" alt="Captura de tela de 2025-08-03 09-26-37" src="https://i.imgur.com/g8a7Xp8.png" />
 
 ## 🚀 Funcionalidades
 
@@ -32,8 +34,9 @@ Sistema completo para classificação de sentimentos em textos, utilizando BERT 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/analise-sentimentos.git
-   cd analise-sentimentos ```
+   git clone https://github.com/brunom764/text-sentiment-analysis.git
+   cd text-sentiment-analysis
+   ```
 
 2. Faça o download do dataset em csv
    https://www.kaggle.com/datasets/kazanova/sentiment140
@@ -64,7 +67,8 @@ uvicorn main:app --reload
 2. Inicie a interface (em outro terminal):
 
  ```bash
-streamlit run app.py
+cd web
+streamlit run app_streamlit.py
 ```
 
 3. Acesse no navegador:
