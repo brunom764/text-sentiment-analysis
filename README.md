@@ -67,6 +67,7 @@ uvicorn main:app --reload
 2. Inicie a interface (em outro terminal):
 
  ```bash
+cd web
 streamlit run app_streamlit.py
 ```
 
